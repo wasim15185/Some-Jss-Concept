@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { withStyles } from "@material-ui/styles";
+const styles = {
+	//basically is 'main' is css Class
+	main: {
+		backgroundColor: "purple",
+		"& h1": {
+			color: "pink",
+			backgroundColor: "blue",
+		},
+	},
+};
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props) {
+	console.log(props);
+	const { classes } = props;
+	return (
+		<div className="App">
+			<div className={classes.main}>
+				<h1>Hello</h1>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+					voluptatem labore magnam consequatur itaque officiis, perspiciatis
+					nihil odit possimus saepe!
+				</p>
+			</div>
+		</div>
+	);
 }
 
-export default App;
+//1. first of All do this 'withStyles(styles)(App)'
+export default withStyles(styles)(App);
